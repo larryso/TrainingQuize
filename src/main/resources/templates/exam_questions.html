@@ -1,0 +1,480 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Cognizant AliClound Training</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <link rel="stylesheet" th:href="@{/lib/weui.min.css}"/>
+    <link rel="stylesheet" th:href="@{/lib/jquery-weui.min.css}"/>
+</head>
+
+<body ontouchstart>
+<form id="q_form_id" action="/submitPaper" method="post">
+    <input type="hidden" id="employId_id" name="employId" th:value="${employId}">
+    <div class="container">
+        <!-- navagator--------->
+        <div class="top">
+            <h1 style="text-align: center;font-size: 20px;color: #3cc51f;margin: 0 15%;">阿里云培训小测</h1>
+        </div>
+        <!-- navagator--------->
+        <div class="weui-cells__title" th:text="${questionList[0].subject}"></div>
+        <div class="weui-cells weui-cells_checkbox">
+            <label class="weui-cell weui-check__label" for="s11">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" class="weui-check" name="q1" id="s11" value="A">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[0].optionA}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="s12">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" name="q1" class="weui-check" id="s12" value="B">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[0].optionB}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="s13">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" name="q1" class="weui-check" id="s13" value="C">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[0].optionC}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="s14">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" name="q1" class="weui-check" id="s14" value="D">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[0].optionD}"></p>
+                </div>
+            </label>
+        </div>
+
+
+        <div class="weui-cells__title" th:text="${questionList[1].subject}"></div>
+        <div class="weui-cells weui-cells_checkbox">
+            <label class="weui-cell weui-check__label" for="s21">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" class="weui-check" name="q2" id="s21" value="A">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[1].optionA}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="s22">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" name="q2" class="weui-check" id="s22" value="B">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[1].optionB}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="s23">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" name="q2" class="weui-check" id="s23" value="C">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[1].optionC}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="s24">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" name="q2" class="weui-check" id="s24" value="D">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[1].optionD}"></p>
+                </div>
+            </label>
+        </div>
+
+        <div class="weui-cells__title" th:text="${questionList[2].subject}"></div>
+        <div class="weui-cells weui-cells_checkbox">
+            <label class="weui-cell weui-check__label" for="s31">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" class="weui-check" name="q3" id="s31" value="A">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[2].optionA}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="s32">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" name="q3" class="weui-check" id="s32" value="B">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[2].optionB}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="s33">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" name="q3" class="weui-check" id="s33" value="C">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[2].optionC}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="s34">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" name="q3" class="weui-check" id="s34" value="D">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[2].optionD}"></p>
+                </div>
+            </label>
+        </div>
+
+        <div class="weui-cells__title" th:text="${questionList[3].subject}"></div>
+        <div class="weui-cells weui-cells_checkbox">
+            <label class="weui-cell weui-check__label" for="s41">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" class="weui-check" name="q4" id="s41" value="A">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[3].optionA}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="s42">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" name="q4" class="weui-check" id="s42" value="B">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[3].optionB}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="s43">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" name="q4" class="weui-check" id="s43" value="C">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[3].optionC}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="s44">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" name="q4" class="weui-check" id="s44" value="D">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[3].optionD}"></p>
+                </div>
+            </label>
+        </div>
+
+        <div class="weui-cells__title" th:text="${questionList[4].subject}"></div>
+        <div class="weui-cells weui-cells_checkbox">
+            <label class="weui-cell weui-check__label" for="s51">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" class="weui-check" name="q5" id="s51" value="A">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[4].optionA}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="s52">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" name="q5" class="weui-check" id="s52" value="B">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[4].optionB}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="s53">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" name="q5" class="weui-check" id="s53" value="C">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[4].optionC}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="s54">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" name="q5" class="weui-check" id="s54" value="D">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[4].optionD}"></p>
+                </div>
+            </label>
+        </div>
+
+        <div class="weui-cells__title" th:text="${questionList[5].subject}"></div>
+        <div class="weui-cells weui-cells_checkbox">
+            <label class="weui-cell weui-check__label" for="s61">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" class="weui-check" name="q6" id="s61" value="A">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[5].optionA}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="s62">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" name="q6" class="weui-check" id="s62" value="B">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[5].optionB}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="s63">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" name="q6" class="weui-check" id="s63" value="C">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[5].optionC}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="s64">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" name="q6" class="weui-check" id="s64" value="D">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[5].optionD}"></p>
+                </div>
+            </label>
+        </div>
+
+        <div class="weui-cells__title" th:text="${questionList[6].subject}"></div>
+        <div class="weui-cells weui-cells_checkbox">
+            <label class="weui-cell weui-check__label" for="s71">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" class="weui-check" name="q7" id="s71" value="A">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[6].optionA}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="s72">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" name="q7" class="weui-check" id="s72" value="B">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[6].optionB}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="s73">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" name="q7" class="weui-check" id="s73" value="C">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[6].optionC}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="s74">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" name="q7" class="weui-check" id="s74" value="D">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[6].optionD}"></p>
+                </div>
+            </label>
+        </div>
+
+        <div class="weui-cells__title" th:text="${questionList[7].subject}"></div>
+        <div class="weui-cells weui-cells_checkbox">
+            <label class="weui-cell weui-check__label" for="s81">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" class="weui-check" name="q8" id="s81" value="A">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[7].optionA}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="s82">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" name="q8" class="weui-check" id="s82" value="B">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[7].optionB}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="s83">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" name="q8" class="weui-check" id="s83" value="C">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[7].optionC}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="s84">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" name="q8" class="weui-check" id="s84" value="D">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[7].optionD}"></p>
+                </div>
+            </label>
+        </div>
+
+        <div class="weui-cells__title" th:text="${questionList[8].subject}"></div>
+        <div class="weui-cells weui-cells_checkbox">
+            <label class="weui-cell weui-check__label" for="s91">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" class="weui-check" name="q9" id="s91" value="A">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[8].optionA}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="s92">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" name="q9" class="weui-check" id="s92" value="B">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[8].optionB}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="s93">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" name="q9" class="weui-check" id="s93" value="C">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[8].optionC}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="s94">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" name="q9" class="weui-check" id="s94" value="D">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[8].optionD}"></p>
+                </div>
+            </label>
+        </div>
+
+        <div class="weui-cells__title" th:text="${questionList[9].subject}"></div>
+        <div class="weui-cells weui-cells_checkbox">
+            <label class="weui-cell weui-check__label" for="s101">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" class="weui-check" name="q10" id="s101" value="A">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[9].optionA}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="s102">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" name="q10" class="weui-check" id="s102" value="B">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[9].optionB}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="s103">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" name="q10" class="weui-check" id="s103" value="C">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[9].optionC}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" for="s104">
+                <div class="weui-cell__hd">
+                    <input type="checkbox" name="q10" class="weui-check" id="s104" value="D">
+                    <i class="weui-icon-checked"></i>
+                </div>
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[9].optionD}"></p>
+                </div>
+            </label>
+        </div>
+
+    </div>
+    <div class="weui-btn-area">
+        <a class="weui-btn weui-btn_primary" href="javascript:" id="submit_exam_id">提交</a>
+    </div>
+    <div class="weui-footer">
+        <p class="weui-footer__text">@ Cognizant Lim.</p>
+    </div>
+</form>
+<script src="lib/jquery-2.1.4.js"></script>
+<script src="lib/jquery-weui.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $("#submit_exam_id").click(function () {
+            if(!$("input[name='q1']").is(':checked')){
+                $.alert("请检查！有未作答的题目");
+                return;
+            }
+            if(!$("input[name='q2']").is(':checked')){
+                $.alert("请检查！有未作答的题目");
+                return;
+            }
+            if(!$("input[name='q3']").is(':checked')){
+                $.alert("请检查！有未作答的题目");
+                return;
+            }
+            if(!$("input[name='q4']").is(':checked')){
+                $.alert("请检查！有未作答的题目");
+                return;
+            }
+            if(!$("input[name='q5']").is(':checked')){
+                $.alert("请检查！有未作答的题目");
+                return;
+            }
+            if(!$("input[name='q6']").is(':checked')){
+                $.alert("请检查！有未作答的题目");
+                return;
+            }
+            if(!$("input[name='q7']").is(':checked')){
+                $.alert("请检查！有未作答的题目");
+                return;
+            }
+            if(!$("input[name='q8']").is(':checked')){
+                $.alert("请检查！有未作答的题目");
+                return;
+            }
+            if(!$("input[name='q9']").is(':checked')){
+                $.alert("请检查！有未作答的题目");
+                return;
+            }
+            if(!$("input[name='q10']").is(':checked')){
+                $.alert("请检查！有未作答的题目");
+                return;
+            }
+            $("#q_form_id").submit();
+        });
+    });
+</script>
+</body>
+</html>

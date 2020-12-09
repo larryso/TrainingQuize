@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>Cognizant AliClound Training</title>
+    <!-- 引入 WeUI -->
+    <link rel="stylesheet"  th:href="@{/lib/weui.min.css}"/>
+    <link rel="stylesheet"  th:href="@{/lib/jquery-weui.min.css}"/>
+</head>
+<body>
+
+
+<header style=" padding: 35px 0;">
+    <h1 style="text-align: center;font-size: 34px;color: #3cc51f;font-weight: 400;margin: 0 15%;">Cognizant AliClound Training (签到)</h1>
+</header>
+
+<form id="login_form" onsubmit="return false" method="post" enctype='application/json'>
+    <div class="weui-cells weui-cells_form">
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">输入员工号：</label></div>
+            <div class="weui-cell__bd">
+                <input id="employNum_id" class="weui-input" type="number" pattern="[0-9]*" placeholder="输入员工号" name="employId">
+            </div>
+        </div>
+
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">输入姓名：</label></div>
+            <div class="weui-cell__bd">
+                <input id="name_id" class="weui-input" type="text" placeholder="输入姓名" name="name">
+            </div>
+        </div>
+        <div class="weui-cell">
+            <div class="weui-cell__hd"><label class="weui-label">邮箱：</label></div>
+            <div class="weui-cell__bd">
+                <input id="email_id" class="weui-input" type="text" placeholder="输入Cognizant 邮箱" name="email">
+            </div>
+        </div>
+
+    </div>
+</form>
+<div class="weui-btn-area">
+    <a class="weui-btn weui-btn_primary" href="javascript:" id="login_id">签到测试</a>
+</div>
+<div class="weui-footer">
+    <p class="weui-footer__text">@ Cognizant Lim.</p>
+</div>
+<script src="lib/jquery-2.1.4.js"></script>
+<script src="lib/jquery-weui.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#login_id").click(function(){
+            if($("#employNum_id").val() ==""){
+                $.alert("请输入员工号");
+                return false;
+            }
+
+            if($("#name_id").val() ==""){
+                $.alert("请输入姓名");
+                return false;
+            }
+            if($("#email_id").val() ==""){
+                $.alert("请输入Cognizant 邮箱");
+                return false;
+            }
+            var employId = $('#employNum_id').val();
+            var name = $('#name_id').val();
+            var email = $('#email_id').val();
+            var data = {employId : employId , name: name, email: email};
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                url: '/signTraining',
+                contentType: "application/json",
+                data: JSON.stringify(data),
+                success: function (result) {
+                    console.log("data is :" + result)
+                    if (result.code == 200) {
+                        $.toptip("签到成功！开始测试", 'success');
+                        window.location.href='/trainingExam?employId='+employId;
+                    }else {
+                        $.toptip("已签单测试！", 'error');
+                }
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

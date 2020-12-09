@@ -1,0 +1,299 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Cognizant AliClound Training</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <link rel="stylesheet" th:href="@{/lib/weui.min.css}"/>
+    <link rel="stylesheet" th:href="@{/lib/jquery-weui.min.css}"/>
+</head>
+
+<body ontouchstart>
+<form id="q_form_id" action="/submitPaper" method="post">
+    <input type="hidden" id="employId_id" name="employId" th:value="${employId}">
+    <div class="container">
+        <!-- navagator--------->
+        <div class="top">
+
+            <h1 style="text-align: center;font-size: 20px;color: red;margin: 0 15%;" th:text="'分数： '+${trainee.score}"></h1>
+        </div>
+        <!-- navagator--------->
+        <div class="weui-cells__title" th:text="${questionList[0].subject}"></div>
+        <div class="weui-cells weui-cells_checkbox">
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[0].optionA}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[0].optionB}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[0].optionC}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[0].optionD}"></p>
+                </div>
+            </label>
+            <a href="javascript:void(0);" class="weui-cell weui-cell_link">
+                <div class="weui-cell__bd" th:text="'正确答案：'+${questionList[0].rightAnswer}+'   你的答案：'+${trainee.answers.charAt(0)}"></div>
+            </a>
+        </div>
+
+
+        <div class="weui-cells__title" th:text="${questionList[1].subject}"></div>
+        <div class="weui-cells weui-cells_checkbox">
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[1].optionA}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[1].optionB}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[1].optionC}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[1].optionD}"></p>
+                </div>
+            </label>
+            <a href="javascript:void(0);" class="weui-cell weui-cell_link">
+                <div class="weui-cell__bd" th:text="'正确答案：'+${questionList[1].rightAnswer}+'   你的答案：'+${trainee.answers.charAt(1)}"></div>
+            </a>
+        </div>
+
+        <div class="weui-cells__title" th:text="${questionList[2].subject}"></div>
+        <div class="weui-cells weui-cells_checkbox">
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[2].optionA}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[2].optionB}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[2].optionC}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[2].optionD}"></p>
+                </div>
+            </label>
+            <a href="javascript:void(0);" class="weui-cell weui-cell_link">
+                <div class="weui-cell__bd" th:text="'正确答案：'+${questionList[2].rightAnswer}+'   你的答案：'+${trainee.answers.charAt(2)}"></div>
+            </a>
+        </div>
+
+        <div class="weui-cells__title" th:text="${questionList[3].subject}"></div>
+        <div class="weui-cells weui-cells_checkbox">
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[3].optionA}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[3].optionB}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[3].optionC}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[3].optionD}"></p>
+                </div>
+            </label>
+            <a href="javascript:void(0);" class="weui-cell weui-cell_link">
+                <div class="weui-cell__bd" th:text="'正确答案：'+${questionList[3].rightAnswer}+'   你的答案：'+${trainee.answers.charAt(3)}"></div>
+            </a>
+        </div>
+
+        <div class="weui-cells__title" th:text="${questionList[4].subject}"></div>
+        <div class="weui-cells weui-cells_checkbox">
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[4].optionA}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[4].optionB}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label" >
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[4].optionC}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[4].optionD}"></p>
+                </div>
+            </label>
+            <a href="javascript:void(0);" class="weui-cell weui-cell_link">
+                <div class="weui-cell__bd" th:text="'正确答案：'+${questionList[4].rightAnswer}+'   你的答案：'+${trainee.answers.charAt(4)}"></div>
+            </a>
+        </div>
+
+        <div class="weui-cells__title" th:text="${questionList[5].subject}"></div>
+        <div class="weui-cells weui-cells_checkbox">
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[5].optionA}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[5].optionB}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[5].optionC}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[5].optionD}"></p>
+                </div>
+            </label>
+            <a href="javascript:void(0);" class="weui-cell weui-cell_link">
+                <div class="weui-cell__bd" th:text="'正确答案：'+${questionList[5].rightAnswer}+'   你的答案：'+${trainee.answers.charAt(5)}"></div>
+            </a>
+        </div>
+
+        <div class="weui-cells__title" th:text="${questionList[6].subject}"></div>
+        <div class="weui-cells weui-cells_checkbox">
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[6].optionA}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[6].optionB}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[6].optionC}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[6].optionD}"></p>
+                </div>
+            </label>
+            <a href="javascript:void(0);" class="weui-cell weui-cell_link">
+                <div class="weui-cell__bd" th:text="'正确答案：'+${questionList[6].rightAnswer}+'   你的答案：'+${trainee.answers.charAt(6)}"></div>
+            </a>
+        </div>
+
+        <div class="weui-cells__title" th:text="${questionList[7].subject}"></div>
+        <div class="weui-cells weui-cells_checkbox">
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[7].optionA}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[7].optionB}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[7].optionC}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[7].optionD}"></p>
+                </div>
+            </label>
+            <a href="javascript:void(0);" class="weui-cell weui-cell_link">
+                <div class="weui-cell__bd" th:text="'正确答案：'+${questionList[7].rightAnswer}+'   你的答案：'+${trainee.answers.charAt(7)}"></div>
+            </a>
+        </div>
+
+        <div class="weui-cells__title" th:text="${questionList[8].subject}"></div>
+        <div class="weui-cells weui-cells_checkbox">
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[8].optionA}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[8].optionB}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[8].optionC}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[8].optionD}"></p>
+                </div>
+            </label>
+            <a href="javascript:void(0);" class="weui-cell weui-cell_link">
+                <div class="weui-cell__bd" th:text="'正确答案：'+${questionList[8].rightAnswer}+'   你的答案：'+${trainee.answers.charAt(8)}"></div>
+            </a>
+        </div>
+
+        <div class="weui-cells__title" th:text="${questionList[9].subject}"></div>
+        <div class="weui-cells weui-cells_checkbox">
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[9].optionA}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[9].optionB}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[9].optionC}"></p>
+                </div>
+            </label>
+            <label class="weui-cell weui-check__label">
+                <div class="weui-cell__bd">
+                    <p th:text="${questionList[9].optionD}"></p>
+                </div>
+            </label>
+            <a href="javascript:void(0);" class="weui-cell weui-cell_link">
+                <div class="weui-cell__bd" th:text="'正确答案：'+${questionList[9].rightAnswer}+'   你的答案：'+${trainee.answers.charAt(9)}"></div>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="weui-footer">
+        <p class="weui-footer__text">@ Cognizant Lim.</p>
+    </div>
+</form>
+</body>
+</html>
