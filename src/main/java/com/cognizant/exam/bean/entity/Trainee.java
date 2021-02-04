@@ -1,6 +1,5 @@
 package com.cognizant.exam.bean.entity;
 
-import com.sun.javafx.beans.IDProperty;
 import lombok.Data;
 import org.hibernate.annotations.Table;
 
